@@ -27,3 +27,10 @@ resource "azurerm_app_service" "bad_example_2" {
   resource_group_name = module.rg.name
   app_service_plan_id = "1231313123131231"
 }
+
+resource "azurerm_app_service" "bad_example_2" {
+  name                = "example-app-service"
+  location            = module.rg.location
+  resource_group_name = module.rg.name
+  app_service_plan_id = "1231313123131231"
+}
