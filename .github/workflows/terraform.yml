@@ -120,7 +120,7 @@ jobs:
          !${{ github.workspace }}/.terraform
 
   tfsec-scan:
-    needs: [terraform-init]
+    needs: [terraform-init-test]
     name: 'Runs tfsec scan'
     runs-on: ubuntu-latest
     env:
