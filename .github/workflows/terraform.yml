@@ -54,6 +54,14 @@ env:
   BACKEND_RESOURCE_GROUP_NAME: ${{ secrets.BACKEND_RESOURCE_GROUP }}
   BACKEND_STORAGE_ACCOUNT_NAME: ${{ secrets.BACKEND_STORAGE_ACCOUNT_NAME }}
   BACKEND_CONTAINER_NAME: ${{ secrets.BACKEND_CONTAINER_NAME }}
+  ARM_TENANT_ID: ${{ secrets.AZ_TENANT_ID }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+  ARM_CLIENT_ID: ${{ secrets.AZ_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.AZ_CLIENT_SECRET }}
+  TF_VAR_subscription_id: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+  TF_VAR_client_id: ${{ secrets.AZ_CLIENT_ID }}
+  TF_VAR_client_secret: ${{ secrets.AZ_CLIENT_SECRET }}
+  TF_VAR_tenant_id: ${{ secrets.AZ_TENANT_ID }}
   TERRAFORM_VERSION: 1.1.2
   
 jobs:
@@ -80,7 +88,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-        terraform_version: ${TERRAFORM_VERSION}
+        terraform_version: 1.1.2
 
     # Show Terraform Version
     - name: Terraform Version
@@ -139,7 +147,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-        terraform_version: ${TERRAFORM_VERSION}
+        terraform_version: 1.1.2
 
     # Show Terraform Version
     - name: Terraform Version
@@ -204,7 +212,7 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-        terraform_version: ${TERRAFORM_VERSION}
+        terraform_version: 1.1.2
 
     # - name: Azure Login
     #   uses: Azure/login@v1
